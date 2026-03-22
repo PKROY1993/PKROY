@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pabitra Kumar Roy | Portfolio</title>
-  <meta name="description" content="Portfolio of Pabitra Kumar Roy, PhD student in Transportation Engineering and transportation safety researcher." />
-  
+  <meta
+    name="description"
+    content="Portfolio of Pabitra Kumar Roy, PhD student in Transportation Engineering and transportation safety researcher."
+  />
+
   <style>
     :root {
       --bg: #0a0f16;
@@ -26,9 +29,10 @@
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Times New Roman", Times, serif;
       color: var(--text);
       background:
         radial-gradient(circle at 88% 12%, rgba(114, 184, 255, 0.12), transparent 22%),
@@ -56,8 +60,15 @@
         linear-gradient(180deg, #f8fbff 0%, #eef4fb 100%);
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .container {
       width: min(calc(100% - 36px), var(--max));
@@ -107,16 +118,31 @@
       font-size: 1.1rem;
     }
 
-    .search-pill {
+    .search-wrap {
       flex: 1;
-      max-width: 290px;
+      max-width: 360px;
       min-width: 170px;
+    }
+
+    .search-pill {
+      width: 100%;
       padding: 12px 16px;
       border-radius: 16px;
       background: var(--panel);
       border: 1px solid var(--border);
-      color: var(--muted-2);
+      color: var(--text);
       font-size: 0.95rem;
+      outline: none;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .search-pill::placeholder {
+      color: var(--muted-2);
+    }
+
+    .search-pill:focus {
+      border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+      box-shadow: 0 0 0 3px rgba(114, 184, 255, 0.12);
     }
 
     .nav-links {
@@ -149,6 +175,7 @@
       color: var(--text);
       cursor: pointer;
       font-size: 1rem;
+      font-family: "Times New Roman", Times, serif;
     }
 
     .hero {
@@ -254,19 +281,19 @@
 
     .hero-card {
       justify-self: end;
-      width: min(100%, 320px);   /* reduce box width */
+      width: min(100%, 390px);
       background: linear-gradient(180deg, var(--panel-2), var(--panel));
       border: 1px solid var(--border);
       border-radius: 28px;
       padding: 14px;
       box-shadow: var(--shadow);
     }
-    
+
     .hero-card img {
       width: 100%;
-      height: auto;              /* keep full image */
-      min-height: unset;         /* remove forced height */
-      object-fit: contain;       /* show full image without crop */
+      min-height: 470px;
+      object-fit: cover;
+      object-position: center 18%;
       border-radius: 22px;
       background: #151d2b;
     }
@@ -373,7 +400,7 @@
     }
 
     ul.clean li::before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 10px;
@@ -471,28 +498,74 @@
     .divider {
       height: 1px;
       margin-top: 44px;
-      background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--text) 12%, transparent), transparent);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        color-mix(in srgb, var(--text) 12%, transparent),
+        transparent
+      );
     }
 
     @media (max-width: 1120px) {
-      .nav-inner { flex-wrap: wrap; padding: 12px 0; }
-      .search-pill { order: 3; max-width: 100%; width: 100%; }
+      .nav-inner {
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      .search-wrap {
+        order: 3;
+        max-width: 100%;
+        width: 100%;
+      }
+
       .hero-grid,
       .grid-3,
-      .grid-4 { grid-template-columns: 1fr; }
-      .hero-card { justify-self: start; }
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        justify-self: start;
+      }
     }
 
     @media (max-width: 760px) {
-      .container { width: min(calc(100% - 22px), var(--max)); }
-      .grid-2 { grid-template-columns: 1fr; }
-      .nav-links { gap: 14px; }
-      .hero { padding-top: 26px; }
-      .hero-copy { font-size: 1.04rem; }
-      .hero-card img { min-height: 360px; }
-      .btn { min-height: 52px; }
-      .icon-btn { width: 50px; height: 50px; }
-      .card { padding: 20px; }
+      .container {
+        width: min(calc(100% - 22px), var(--max));
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        padding-top: 26px;
+      }
+
+      .hero-copy {
+        font-size: 1.04rem;
+      }
+
+      .hero-card img {
+        min-height: 360px;
+      }
+
+      .btn {
+        min-height: 52px;
+      }
+
+      .icon-btn {
+        width: 50px;
+        height: 50px;
+      }
+
+      .card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -504,7 +577,25 @@
         <span>Pabitra Kumar Roy</span>
       </a>
 
-      <div class="search-pill">Ctrl + K to Search...</div>
+      <div class="search-wrap">
+        <input
+          class="search-pill"
+          id="siteSearch"
+          type="text"
+          placeholder="Ctrl + K to Search..."
+          list="searchOptions"
+        />
+        <datalist id="searchOptions">
+          <option value="About Me"></option>
+          <option value="Experience"></option>
+          <option value="Projects"></option>
+          <option value="Publications"></option>
+          <option value="Education"></option>
+          <option value="Tools"></option>
+          <option value="Awards"></option>
+          <option value="Contact"></option>
+        </datalist>
+      </div>
 
       <nav class="nav-links">
         <a href="#about">About Me</a>
@@ -527,15 +618,21 @@
         <div>
           <div class="eyebrow">Hi, my name is</div>
           <h1>Pabitra.</h1>
-          <div class="hero-title">I explore traffic safety, crash analytics, speed management, and intelligent transportation systems.</div>
+          <div class="hero-title">
+            I explore traffic safety, crash analytics, speed management, and intelligent transportation systems.
+          </div>
           <p class="hero-copy">
-            I am a PhD student in Transportation Engineering at the University of Maine and a transportation engineering researcher with more than eight years of combined industry and research experience.
-            My work connects advanced econometric modeling, roadway safety analysis, emergency response performance, speed management strategies, and connected and automated vehicle applications to support practical, data-driven transportation decisions.
+            I am a PhD student in Transportation Engineering at the University of Maine and a transportation
+            engineering researcher with more than eight years of combined industry and research experience.
+            My work connects advanced econometric modeling, roadway safety analysis, emergency response performance,
+            speed management strategies, and connected and automated vehicle applications to support practical,
+            data-driven transportation decisions.
           </p>
 
           <div class="cta-row">
             <a class="btn btn-primary" href="resume.pdf" target="_blank">Resume</a>
             <a class="btn" href="#publications">Selected Research</a>
+
             <div class="socials">
               <a class="icon-btn" href="https://github.com/PKROY1993" target="_blank" title="GitHub">GH</a>
               <a class="icon-btn" href="https://www.linkedin.com/in/pabitra93/" target="_blank" title="LinkedIn">in</a>
@@ -564,8 +661,10 @@
         <div class="section-head">
           <h2>About Me</h2>
           <p>
-            My research interests include traffic safety, econometric modeling, travel demand modeling, intelligent transportation systems, smart cities, connected and autonomous vehicle technology, and autonomous vehicle safety.
-            I enjoy combining rigorous quantitative methods with field-based engineering understanding to produce research that is both technically strong and practically useful.
+            My research interests include traffic safety, econometric modeling, travel demand modeling,
+            intelligent transportation systems, smart cities, connected and autonomous vehicle technology,
+            and autonomous vehicle safety. I enjoy combining rigorous quantitative methods with field-based
+            engineering understanding to produce research that is both technically strong and practically useful.
           </p>
         </div>
 
@@ -603,10 +702,22 @@
         </div>
 
         <div class="grid-4" style="margin-top: 22px;">
-          <div class="card stat"><strong>8+</strong><span class="muted">Years of combined industry and research experience</span></div>
-          <div class="card stat"><strong>PhD</strong><span class="muted">Transportation Engineering at University of Maine</span></div>
-          <div class="card stat"><strong>2025</strong><span class="muted">MS completed at Portland State University</span></div>
-          <div class="card stat"><strong>3rd Place</strong><span class="muted">ASA TSIG Clifford Spiegelman Student Paper Competition</span></div>
+          <div class="card stat">
+            <strong>8+</strong>
+            <span class="muted">Years of combined industry and research experience</span>
+          </div>
+          <div class="card stat">
+            <strong>PhD</strong>
+            <span class="muted">Transportation Engineering at University of Maine</span>
+          </div>
+          <div class="card stat">
+            <strong>2025</strong>
+            <span class="muted">MS completed at Portland State University</span>
+          </div>
+          <div class="card stat">
+            <strong>3rd Place</strong>
+            <span class="muted">ASA TSIG Clifford Spiegelman Student Paper Competition</span>
+          </div>
         </div>
       </div>
     </section>
@@ -615,7 +726,10 @@
       <div class="container">
         <div class="section-head">
           <h2>Experience</h2>
-          <p>Research, leadership, and engineering experience that combines quantitative safety analysis with real-world project delivery.</p>
+          <p>
+            Research, leadership, and engineering experience that combines quantitative safety analysis with
+            real-world project delivery.
+          </p>
         </div>
 
         <div class="timeline">
@@ -623,7 +737,8 @@
             <div class="meta">2026 – Present</div>
             <h4>PhD Student · Transportation Engineering · University of Maine</h4>
             <p class="muted">
-              Current doctoral work aligned with transportation safety, speed management, and intelligent mobility systems, including projects with Maine transportation relevance.
+              Current doctoral work aligned with transportation safety, speed management, and intelligent mobility
+              systems, including projects with Maine transportation relevance.
             </p>
             <ul class="clean">
               <li>Research on speed activated message signs and speed feedback sign effectiveness</li>
@@ -636,7 +751,8 @@
             <div class="meta">01/2024 – 12/2025</div>
             <h4>Graduate Research Assistant · Portland State University</h4>
             <p class="muted">
-              Research focused on predictive crash modeling and driver behavior to inform traffic safety countermeasures and intersection design improvements using econometric and data-driven methods.
+              Research focused on predictive crash modeling and driver behavior to inform traffic safety
+              countermeasures and intersection design improvements using econometric and data-driven methods.
             </p>
             <ul class="clean">
               <li>Applied spatial data science and advanced statistical modeling to transportation safety data</li>
@@ -649,7 +765,9 @@
             <div class="meta">09/2018 – 12/2023</div>
             <h4>Office Engineer / Site Supervision Engineer · SMEC International Pty Ltd.</h4>
             <p class="muted">
-              Worked on the Bangabandhu Sheikh Mujibur Rahman Tunnel project and related civil works, including tunnel supervision, segment production oversight, roadway and viaduct activities, and QC/QA coordination in Bangladesh and China.
+              Worked on the Bangabandhu Sheikh Mujibur Rahman Tunnel project and related civil works, including
+              tunnel supervision, segment production oversight, roadway and viaduct activities, and QC/QA
+              coordination in Bangladesh and China.
             </p>
             <ul class="clean">
               <li>Supervised tunnel, viaduct, roadwork, toll plaza, and ancillary facility construction</li>
@@ -662,7 +780,8 @@
             <div class="meta">12/2015 – 09/2018</div>
             <h4>Assistant Engineer Roles · QA/QC and Construction</h4>
             <p class="muted">
-              Earlier roles included quality assurance, site supervision, material and document control, and technical coordination for geotechnical and construction projects.
+              Earlier roles included quality assurance, site supervision, material and document control, and
+              technical coordination for geotechnical and construction projects.
             </p>
             <ul class="clean">
               <li>Assistant Engineer (QA/QC), Next Spaces Limited</li>
@@ -713,14 +832,23 @@
       <div class="container">
         <div class="section-head">
           <h2>Publications & Presentations</h2>
-          <p>Selected thesis, posters, and research outputs currently visible across your Google Site, Google Scholar profile, and institutional pages.</p>
+          <p>
+            Selected thesis, posters, and research outputs currently visible across your Google Site,
+            Google Scholar profile, and institutional pages.
+          </p>
         </div>
 
         <div class="grid-2">
           <article class="card pub-item">
             <span class="kicker">Master’s Thesis</span>
-            <div class="pub-title">An Integrated Multivariate Econometric Modeling Framework for Risky Driving Behavior Related Crashes: Evaluating Crash Risk and Severity Across Zones</div>
-            <div class="muted">Portland State University · Fall 2025 · Thesis research focused on risky driving behavior, crash occurrence, and injury severity using integrated econometric modeling.</div>
+            <div class="pub-title">
+              An Integrated Multivariate Econometric Modeling Framework for Risky Driving Behavior Related Crashes:
+              Evaluating Crash Risk and Severity Across Zones
+            </div>
+            <div class="muted">
+              Portland State University · Fall 2025 · Thesis research focused on risky driving behavior,
+              crash occurrence, and injury severity using integrated econometric modeling.
+            </div>
             <div class="pub-links">
               <a class="mini-link" href="https://pdxscholar.library.pdx.edu/open_access_etds/6986/" target="_blank">Thesis Page</a>
               <a class="mini-link" href="https://scholar.google.com/citations?user=ILZV7zEAAAAJ&hl=en" target="_blank">Scholar</a>
@@ -729,32 +857,55 @@
 
           <article class="card pub-item">
             <span class="kicker">TRB 2026</span>
-            <div class="pub-title">A Copula-Based Approach to Modeling Emergency Medical Services Reporting, Response, Clearance, and Transportation Times for Traffic Incidents on Interstates</div>
-            <div class="muted">Poster and ongoing research direction exploring the incident timeline and EMS performance on interstates.</div>
+            <div class="pub-title">
+              A Copula-Based Approach to Modeling Emergency Medical Services Reporting, Response, Clearance,
+              and Transportation Times for Traffic Incidents on Interstates
+            </div>
+            <div class="muted">
+              Poster and ongoing research direction exploring the incident timeline and EMS performance on interstates.
+            </div>
           </article>
 
           <article class="card pub-item">
             <span class="kicker">PacTrans 2025 / TRB 2026 / T&DI 2026</span>
-            <div class="pub-title">An Integrated Multivariate Econometric Modeling Framework for Risky Driving Behavior Related Crashes</div>
-            <div class="muted">Presented across multiple conference settings and recognized through the ASA TSIG Clifford Spiegelman Student Paper Competition.</div>
+            <div class="pub-title">
+              An Integrated Multivariate Econometric Modeling Framework for Risky Driving Behavior Related Crashes
+            </div>
+            <div class="muted">
+              Presented across multiple conference settings and recognized through the ASA TSIG Clifford Spiegelman Student Paper Competition.
+            </div>
           </article>
 
           <article class="card pub-item">
             <span class="kicker">Research in Progress</span>
-            <div class="pub-title">Unraveling Collision Patterns: Econometric Modeling of Crash Types at Oregon Census Block Level with Insights into Unobserved Heterogeneity</div>
-            <div class="muted">Research progress connecting crash types, geography, and latent heterogeneity in transportation safety analysis.</div>
+            <div class="pub-title">
+              Unraveling Collision Patterns: Econometric Modeling of Crash Types at Oregon Census Block Level with
+              Insights into Unobserved Heterogeneity
+            </div>
+            <div class="muted">
+              Research progress connecting crash types, geography, and latent heterogeneity in transportation safety analysis.
+            </div>
           </article>
 
           <article class="card pub-item">
             <span class="kicker">Research in Progress</span>
-            <div class="pub-title">Investigating the Influencing Factors of Distraction-Related Driving Behavior and Corresponding Collision Patterns in Illinois with Post-COVID-19 Data</div>
-            <div class="muted">A continuing safety research direction involving behavioral crash patterns and explanatory factors.</div>
+            <div class="pub-title">
+              Investigating the Influencing Factors of Distraction-Related Driving Behavior and Corresponding
+              Collision Patterns in Illinois with Post-COVID-19 Data
+            </div>
+            <div class="muted">
+              A continuing safety research direction involving behavioral crash patterns and explanatory factors.
+            </div>
           </article>
 
           <article class="card pub-item">
             <span class="kicker">Research in Progress</span>
-            <div class="pub-title">Investigating the Relationship Between Impaired Driving Behavior and Lane Departure Crashes</div>
-            <div class="muted">Ongoing work on impaired driving and lane departure crash relationships.</div>
+            <div class="pub-title">
+              Investigating the Relationship Between Impaired Driving Behavior and Lane Departure Crashes
+            </div>
+            <div class="muted">
+              Ongoing work on impaired driving and lane departure crash relationships.
+            </div>
           </article>
         </div>
       </div>
@@ -859,7 +1010,8 @@
         <div class="card">
           <h3>Let’s connect</h3>
           <p class="muted">
-            I am interested in transportation safety, speed management, crash analytics, intelligent transportation systems, and interdisciplinary collaborations that connect research with implementation.
+            I am interested in transportation safety, speed management, crash analytics, intelligent transportation
+            systems, and interdisciplinary collaborations that connect research with implementation.
           </p>
           <div class="contact-box">
             <a class="contact-chip" href="mailto:pabitraroy93@gmail.com">pabitraroy93@gmail.com</a>
@@ -881,47 +1033,97 @@
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
 
     const activateLink = () => {
-      let current = '';
-      sections.forEach(section => {
+      let current = "";
+      sections.forEach((section) => {
         const top = window.scrollY;
         const offset = section.offsetTop - 120;
         const height = section.offsetHeight;
         if (top >= offset && top < offset + height) {
-          current = section.getAttribute('id');
+          current = section.getAttribute("id");
         }
       });
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === `#${current}`) {
+          link.classList.add("active");
         }
       });
     };
 
-    window.addEventListener('scroll', activateLink);
+    window.addEventListener("scroll", activateLink);
     activateLink();
 
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+    const searchInput = document.getElementById("siteSearch");
+
+    const searchTargets = {
+      "about": "#about",
+      "about me": "#about",
+      "experience": "#experience",
+      "projects": "#projects",
+      "project": "#projects",
+      "publications": "#publications",
+      "publication": "#publications",
+      "presentations": "#publications",
+      "education": "#education",
+      "tools": "#tools",
+      "awards": "#awards",
+      "contact": "#contact"
+    };
+
+    function runSearch() {
+      const raw = searchInput.value.trim().toLowerCase();
+      if (!raw) return;
+
+      let target = searchTargets[raw];
+
+      if (!target) {
+        const match = Object.keys(searchTargets).find(
+          key => key.includes(raw) || raw.includes(key)
+        );
+        if (match) target = searchTargets[match];
+      }
+
+      if (target) {
+        document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+        searchInput.blur();
+      }
+    }
+
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
         e.preventDefault();
-        document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
+        runSearch();
       }
     });
 
-    const themeBtn = document.getElementById('themeBtn');
-    const savedTheme = localStorage.getItem('pkroy-theme');
-    if (savedTheme === 'light') document.body.classList.add('light');
+    document.addEventListener("keydown", (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        searchInput.focus();
+        searchInput.select();
+      }
+    });
 
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-      localStorage.setItem('pkroy-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    const themeBtn = document.getElementById("themeBtn");
+    const savedTheme = localStorage.getItem("pkroy-theme");
+
+    if (savedTheme === "light") {
+      document.body.classList.add("light");
+    }
+
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("light");
+      localStorage.setItem(
+        "pkroy-theme",
+        document.body.classList.contains("light") ? "light" : "dark"
+      );
     });
   </script>
 </body>

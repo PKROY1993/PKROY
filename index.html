@@ -254,19 +254,19 @@
 
     .hero-card {
       justify-self: end;
-      width: min(100%, 390px);
+      width: min(100%, 320px);   /* reduce box width */
       background: linear-gradient(180deg, var(--panel-2), var(--panel));
       border: 1px solid var(--border);
       border-radius: 28px;
       padding: 14px;
       box-shadow: var(--shadow);
     }
-
+    
     .hero-card img {
       width: 100%;
-      min-height: 470px;
-      object-fit: cover;
-      object-position: center 18%;
+      height: auto;              /* keep full image */
+      min-height: unset;         /* remove forced height */
+      object-fit: contain;       /* show full image without crop */
       border-radius: 22px;
       background: #151d2b;
     }
